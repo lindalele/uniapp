@@ -1,0 +1,44 @@
+{
+    "pages":[
+        {
+            "path":"pages/index/index",
+            "style":{  
+                "navigationBarTitleText":"珠峰",
+                "navigationStyle":"custom" //告诉uniapp头部使用**自定义
+            }
+        },
+        {
+            "path":"pages/pubinfo/pubinfo",
+            "style":{  
+                "navigationBarTitleText":"公开课详情页面"
+            }
+        }
+    ],
+    "globalSyle":{
+
+    },
+    "tabBar":{ //uniapp 框架一栏 tabBar和pages是在同级的，所以这里写成同级
+        "color":"#A0522D",
+        "selectedColor":"#B3EE3A", //选中的文字颜色
+        "backgroundColor":"#fff", // 整个tab一栏的背景色
+        "borderStyle":"white",//可选值 black/white	App 2.3.4+ 支持其他颜色值、H5 3.0.0+
+        "position":"top",   //浏览器中不起作用依旧是在下面，只有运行在小程序中才起作用
+        "list":[
+            {  //新建对应vue文件
+              "text":"首页",
+              "pagePath":"pages/index/index",
+              "iconPath":"static/tabs/home-active.png",
+              "selectedIconPath":"static/tabs/"
+            }
+        ]
+    },
+    "condition":{  //启动模式配置，尽在开发期间生效,因为小程序中无法用输入url地址的方式进入，所以可以配置condition
+        
+     "current":0,//当前激活的模式，list节点的索引值
+     "list:":[
+         {
+          "name":"详情页"
+         }
+     ]
+    }
+}

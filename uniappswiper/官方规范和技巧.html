@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    https://ke.qq.com/course/343370?taid=2796517631278410
+    介绍-官方示例有uniapp组件的扫码演示， 代码使用H-Builder新建-项目-uniapp
+    color-ui等组件查看 在介绍一栏，有vue介绍，有些API在微信小程序中不支持
+    对于接口，和微信小程序的API基本是一致的
+    在App端和H5端来支持rpx的动态绑定。这样rpx就可以全端通用，且支持动态绑定
+    :style="{width:+'rpx'}" ,注意老版本upx不支持动态绑定
+    样式不可以用*号，也不可以用 > 号
+    <script>
+
+              在H-Buider中新建项目Hello uni-app,拷贝common文件夹中的uni.css,到App.vue中引用
+      // 不支持横竖屏切换，建议锁定
+      // 使用HBuilder时候 输入  u 开头的会出现对应的组件名称比如输入 ui ,image标签就可以使用
+      // 微信小程序调试：Wxml可以查看样式和dom
+
+      // 一键打包
+
+      // css文件或style标签内引入css文件时（scss、less文件同理），只能使用相对路径。
+      字体文件推荐以~@/static/font/ 前缀  ，改iconfont.css的路径 ，在App.vue中引入，可以在全局使用
+      小程序不支持在css中使用本地文件，包括本地的背景图和字体文件。需以base64方式方可使用。
+      css文件或style标签内引入css文件时（scss、less文件同理），只能使用相对路径
+      9.小程序不支持在css中使用本地文件，包括本地的背景图和字体文件。需以base64方式方可使用。
+
+      10.背景图片微信小程序不支持相对路径（真机不支持，开发工具支持）。
+      小程序组件需要放在项目特殊文件夹 wxcomponents（或 mycomponents、swancomponents）。
+
+      14.当需要在 vue 组件中使用小程序组件时，注意在 pages.json 的 globalStyle 中配置 usingComponents，而不是页面级配置。
+
+      12.非 H5 端不支持使用含有 dom、window 等操作的 vue 组件和 js 模块，安装的模块及其依赖的模块使用的 API 必须是 uni-app 已有的 API。
+
+      13.小程序组件需要放在项目特殊文件夹 wxcomponents（或 mycomponents、swancomponents）。
+
+      14.当需要在 vue 组件中使用小程序组件时，注意在 pages.json 的 globalStyle 中配置 usingComponents，而不是页面级配置。
+
+      15.以:style=""这样的方式设置px像素值，其值为实际像素，不会被编译器转换。
+
+      16.若需要禁止蒙版下的页面滚动，可使用 @touchmove.stop.prevent="moveHandle"，moveHandle 可以用来处理 touchmove 的事件，也可以是一个空函数。
+
+      17.App端和H5端支持v-html，其他端不支持v-html。
+
+      18.uni-app不需要 plus ready 在html中使用plus的api。
+
+      19.在普通的 H5+ 项目中，需要使用 document.addEventListener 监听原生扩展的事件。uni-app 中，没有 document。可以使用
+      plus.globalEvent.addEventListener 来实现。
+
+      20.App端若要使用操作window、document的库，需要通过renderjs来实现。
+
+      21.tabbar 切换第一次加载时可能渲染不及时，可以在每个tabbar页面的onLoad生命周期里先弹出一个等待雪花。
+
+      22.tabbar 的页面展现过一次后就保留在内存中，再次切换 tabbar 页面，只会触发每个页面的onShow，不会再触发onLoad。
+
+      23.分包加载配置，subPackages 为小程序的分包加载机制。在App里始终为整包。subPackages 里的pages的路径是 root 下的相对路径，不是全路径。
+
+      24.splash（启动封面）是App必然存在的、不可取消的。splash只能是标准png，不要用jpg改名为png。
+
+      25.所有组件与属性名都是****小写，单词之间以连字符-连接。
+
+      26.APP-vue和小程序中，请勿在 scroll-view 中使用 map、video 等原生组件。小程序中 scroll-view 中也不要使用
+       canvas、textarea 原生组件。
+
+      27.scroll-view 不适合放长列表，有性能问题。长列表滚动和下拉刷新，应该使用原生导航栏搭配页面级的滚动和下拉刷新实现。
+
+      28.除了文本节点以外的其他节点都无法长按选中。
+
+       29.如需调节checkbox,radio大小，可通过css的scale方法调节，如缩小到70%style="transform:scale(0.7)"。
+
+      30.页面结构复杂，css样式太多的情况，使用 image 可能导致样式生效较慢，出现 “闪一下” 的情况，此时设置 image{will-change: transform} ,可优化此问题。
+
+      31.自定义组件里面使用*** <image>时，若 src 使用相对路径可能出现路径查找失败的情况，故建议使用**绝对路径。
+
+      32.App平台：使用 <video/> 组件，打包 App 时必须勾选 manifest.json->App 模块权限配置->VideoPlayer 模块。
+
+      33.App平台：如果使用的视频路径为本地路径，需要配置资源为释放模式：在 manifest.json 文件内 app-plus 节点下新增 runmode 配置，设置值为liberate。
+
+      34.webview在App 平台同时支持网络网页和本地网页，但本地网页及相关资源（js、css等文件）必须放在 uni-app 项目根目录->hybrid->html 文件夹下；小程序仅支持加载网络网页，不支持本地html。
+
+      35.H5端onBackPress只能监听页面导航栏的返回按钮的点击事件，不能监听浏览器返回以及手机的返回。
+
+      36.发出请求的method的值必须大写，有效值在不同平台差异说明不同。
+
+      37.localhost、127.0.0.1等服务器地址，只能在电脑端运行，手机端连接时不能访问。请使用标准IP并保证手机能连接电脑网络。
+
+      38.App支持多文件上传，微信小程序只支持单文件上传，传多个文件需要反复调用本API。所以跨端的写法就是循环调用本API。
+
+      39.如果想打开web url，在App平台可以使用 plus.runtime.openURL或web-view组件；H5平台使用 window.open；小程序平台使用web-view组件（url需在小程序的联网白名单中）。
+
+      40.navigateTo, redirectTo 只能打开非 tabBar 页面,switchTab 只能打开 tabBar 页面.
+
+      41.H5端页面刷新之后页面栈会消失，此时navigateBack不能返回，如果一定要返回可以使用history.back()导航到浏览器的其他历史记录.
+
+      42.App端如需选择非媒体文件，可在插件市场搜索文件选择，其中Android端可以使用Native.js，无需原生插件，而iOS端需要原生插件。
+
+      43.关于一些权限的使用，类似***相机，语音，都要先判断一下设备的*访问权限是否开启。
+
+      44.屏幕高度=状态栏高度+原生导航栏高度+可使用窗口高度+原生tabbar高度。
+
+      45.分享到 QQ 必须含有 href 链接，分享文字到 QQ 时，title 必选，不能直接分享到QQ空间，可以分享到QQ，然后在QQ的界面里选择QQ空间。
+
+      46.从APP分享到微信时，无法判断用户是否点击取消分享，因为微信官方禁掉了分享成功的返回值。
+
+      47.支付的传参要注意orderInfo在不同的环境下传参类型不一致。
+
+      48.关于文本超出展示...，需要在超出展示盒子的内部在内嵌一层子元素，否则app端会有问题。
+
+      UNIAPP横向滚动BUG
+      scroll-view盒子要指定width，且要有white-space:nowrap;属性；
+      scroll-view内的盒子要是行内块inline-block，才能展示在一排。
+
+      UNIAPP调试差异问题
+      uniapp当遇到一些耗时操作时，耗时操作里发生了错误，
+
+      在h5网页端调试时它会继续往下走，且不会提示，
+
+      但在真机运行时，会发生一些反应于预期不一样，
+
+      导致你对比找错误的时候浪费很多时间，
+
+      建议把耗时操作以及一些判断性操作写在同一级代码的最后。
+    </script>
+  </body>
+</html>
